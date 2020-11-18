@@ -1,0 +1,35 @@
+{%extends 'base.html'%}
+{%block content%}
+<div class="container-fluid">
+    <h3>Popular on netflix</h3>
+    <div class="row">
+        {%for data in popular.results%}
+        <div class="card m-1">
+            <img class="" src="https://image.tmdb.org/t/p/w342/{{data.poster_path}}" alt="Card image cap">
+        </div>
+        {%endfor%}
+    </div>
+    <h3>Upcoming ones</h3>
+    <div class="row">
+        {%for data in upcoming.results%}
+        <div class="card m-1">
+            <img src="https://image.tmdb.org/t/p/w342/{{data.poster_path}}" alt="image">
+        </div>
+        {%endfor%}
+    </div>
+    <h3>Latest</h3>
+    {%for data in latest.results%}
+    <p>{{data.original_title}}</p>
+    <img src="https://image.tmdb.org/t/p/w342/{{data.poster_path}}" alt="image">
+    {%endfor%}
+    <h3>Top rated</h3>
+    <div class="row">
+        {%for data in toprated.results%}
+        <div class="card m-1">
+            <img src="https://image.tmdb.org/t/p/w342/{{data.poster_path}}" alt="image">
+        </div>
+        {%endfor%}
+    </div>
+
+    {%endblock%}
+</div>
