@@ -25,11 +25,17 @@ def home(request):
 
     return render(request,'home.html',{'popular':popular,"upcoming":upcoming,"latest":latest,"toprated":topRated})
 
-def youtube(request):
+def youtube(request,id):
     yTubeKey =  config('yTubeKey')
-    youtube = build('youtube','v3',developerkey = yTubeKey)
-    req = youtube.search(q = 'avengers',part = 'snippet',type= 'video')
+    popular = home1(request,'popular')
+    pp = ''
+    for p in popular['results']:
+        if str(p['id'])==str(id):
+            pp = p['title']
+    youtube = build('youtube','v3',developerKey = yTubeKey)
+    req = youtube.search().list(q= pp+'trailer',part = 'snippet',type= 'video')
     res = req.execute()
-    print(res)
+    return render(request,'youtube.html',{'response':res})
+
 
 

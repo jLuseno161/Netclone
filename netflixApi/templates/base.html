@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 
@@ -18,13 +17,15 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
     {% endblock %}
 
- 
+
     <title>Netflix Clone</title>
 </head>
 
 <body>
+    {%include "navbar.html"%}
 
-    {% block content %}{%endblock%}
+    {% block content %}
+    {%endblock%}
 
     {% block scripts %}
 
